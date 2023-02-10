@@ -58,7 +58,7 @@ def main(args, set):
                 ph = phone_int2sym[ph]
             keys.append(key)
             features.append(feat)
-            lables.append([ph, score_of[key]])
+            lables.append([ph])
 
     print('now processing {:s} set with floor {:f}, load {:d} samples'.format(set, args.floor, cnt))
 

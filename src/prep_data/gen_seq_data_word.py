@@ -38,7 +38,7 @@ def process_feat_seq_word(feat, keys, labels):
     print('In total utterance number : ' + str(utt_cnt))
 
     # -1 means n/a
-    seq_label = np.zeros([utt_cnt, 50, 4]) - 1
+    seq_label = np.zeros([utt_cnt, 100, 4]) - 1
 
     prev_utt_id = keys[0].split('.')[0]
 

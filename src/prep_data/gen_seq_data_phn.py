@@ -39,10 +39,10 @@ def process_feat_seq(feat, keys, labels, phn_dict):
     print('In total utterance number : ' + str(utt_cnt))
 
     # Pad all sequence to 50 because the longest sequence of the so762 dataset is shorter than 50.
-    seq_feat = np.zeros([utt_cnt, 50, feat_dim])
+    seq_feat = np.zeros([utt_cnt, 100, feat_dim])
     # -1 means n/a, padded token
     # [utt, seq_len, 0] is the phone label, and the [utt, seq_len, 1] is the score label
-    seq_label = np.zeros([utt_cnt, 50, 2]) - 1
+    seq_label = np.zeros([utt_cnt, 100, 2]) - 1
 
     # the key format is utt_id.phn_id
     prev_utt_id = keys[0].split('.')[0]

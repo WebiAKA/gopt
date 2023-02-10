@@ -12,8 +12,8 @@
 
 set -x
 # comment this line if not running on sls cluster
-. /data/sls/scratch/share-201907/slstoolchainrc
-source ../venv-gopt/bin/activate
+# . /data/sls/scratch/share-201907/slstoolchainrc
+# source ../venv-gopt/bin/activate
 
 lr=1e-3
 depth=3
@@ -26,7 +26,8 @@ am=librispeech
 exp_dir=../exp/gopt-${lr}-${depth}-${head}-${batch_size}-${embed_dim}-${model}-${am}-br
 
 # repeat times
-repeat_list=(0 1 2 3 4)
+# repeat_list=(0 1 2 3 4)
+repeat_list=(0 1)
 
 for repeat in "${repeat_list[@]}"
 do

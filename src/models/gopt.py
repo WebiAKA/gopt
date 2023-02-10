@@ -140,9 +140,9 @@ class GOPT(nn.Module):
         # Transformer encode blocks
         self.blocks = nn.ModuleList([Block(dim=embed_dim, num_heads=num_heads) for i in range(depth)])
 
-        # sin pos embedding or learnable pos embedding, 55 = 50 sequence length + 5 utt-level cls tokens
-        #self.pos_embed = nn.Parameter(get_sinusoid_encoding(55, self.embed_dim) * 0.1, requires_grad=True)
-        self.pos_embed = nn.Parameter(torch.zeros(1, 55, self.embed_dim))
+        # sin pos embedding or learnable pos embedding, 105 = 100 sequence length + 5 utt-level cls tokens
+        #self.pos_embed = nn.Parameter(get_sinusoid_encoding(105, self.embed_dim) * 0.1, requires_grad=True)
+        self.pos_embed = nn.Parameter(torch.zeros(1, 105, self.embed_dim))
         trunc_normal_(self.pos_embed, std=.02)
 
         # for phone classification
@@ -234,8 +234,8 @@ class GOPTNoPhn(nn.Module):
         self.blocks = nn.ModuleList([Block(dim=embed_dim, num_heads=num_heads) for i in range(depth)])
 
         # sin pos embedding
-        #self.pos_embed = nn.Parameter(get_sinusoid_encoding(55, self.embed_dim) * 0.1, requires_grad=True)
-        self.pos_embed = nn.Parameter(torch.zeros(1, 55, self.embed_dim))
+        #self.pos_embed = nn.Parameter(get_sinusoid_encoding(105, self.embed_dim) * 0.1, requires_grad=True)
+        self.pos_embed = nn.Parameter(torch.zeros(1, 105, self.embed_dim))
         trunc_normal_(self.pos_embed, std=.02)
 
         # for phone classification
